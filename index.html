@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Ping-Pong</title>
+    <style>
+        * {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        /* 
+        1 - selecionou a tag canvas
+        2 - definiu que ela é 2d
+        */
+        const canvasEl = document.querySelector("canvas"), canvasCtx = canvasEl.getContext("2d");
+
+        const lineWidth = 15; //largura da linha
+
+        function setup() {
+             /* 
+                1 - definindo largura do canvasEl e canvasCtx como o padrão da Window
+                2 - definindo altura do canvasEl e canvasCtx como o padrão da Window
+            */
+            canvasEl.width = canvasCtx.width = window.innerWidth
+            canvasEl.height = canvasCtx.height = window.innerHeight
+        }
+
+        function draw() {
+            //desenha o campo
+            canvasCtx.fillStyle = "#286047"; //definindo cor de fundo
+            canvasCtx.fillRect(0, 0, window.innerWidth, window.innerHeight); //definindo ponto de inicio do rect, largura e altura
+            
+            //desenha linha dentral
+            canvasCtx.fillStyle = "#ffffff"; //definindo a cor da linha
+            const x = window.innerWidth / 2 - lineWidth / 2; //ponto inicial horizontal
+            const y = 0; //ponto inicial vertical
+            const w = lineWidth; //largura da linha
+            const h = window.innerHeight //altura da linha
+            canvasCtx.fillRect(x, y, w, h); //linha
+
+            //desenha a raquete esquerda
+            canvasCtx.fillRect(10, 400, lineWidth, 200);
+
+            //desenha a raquete direita
+            canvasCtx.fillRect(window.innerWidth - lineWidth - 10, 120, lineWidth, 200)
+
+            //desenha a bolinha
+            canvasCtx.beginPath()
+            canvasCtx.arc(200, 300, 20, 0, 2 * Math.PI, false)
+            canvasCtx.fill()
+            //comentario
+        }
+
+        setup();
+        draw();
+    </script>
+</body>
+</html>
