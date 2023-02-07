@@ -24,19 +24,28 @@
 
         const lineWidth = 15; //largura da linha
 
+        //OBJETO CAMPO
+        const field = {
+            w: window.innerWidth,
+            h: window.innerHeight,
+            draw: function() { //MÉTODO
+                //desenha o campo
+                canvasCtx.fillStyle = "#286047"; //definindo cor de fundo
+                canvasCtx.fillRect(0, 0, window.innerWidth, window.innerHeight); //definindo ponto de inicio do rect, largura e altura
+            }
+        }
+
         function setup() {
              /* 
                 1 - definindo largura do canvasEl e canvasCtx como o padrão da Window
                 2 - definindo altura do canvasEl e canvasCtx como o padrão da Window
             */
-            canvasEl.width = canvasCtx.width = window.innerWidth
-            canvasEl.height = canvasCtx.height = window.innerHeight
+            canvasEl.width = canvasCtx.width = field.w;
+            canvasEl.height = canvasCtx.height = field.h;
         }
 
         function draw() {
-            //desenha o campo
-            canvasCtx.fillStyle = "#286047"; //definindo cor de fundo
-            canvasCtx.fillRect(0, 0, window.innerWidth, window.innerHeight); //definindo ponto de inicio do rect, largura e altura
+            field.draw();
             
             //desenha linha dentral
             canvasCtx.fillStyle = "#ffffff"; //definindo a cor da linha
