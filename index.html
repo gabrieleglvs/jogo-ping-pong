@@ -31,8 +31,19 @@
             draw: function() { //MÉTODO
                 //desenha o campo
                 canvasCtx.fillStyle = "#286047"; //definindo cor de fundo
-                canvasCtx.fillRect(0, 0, window.innerWidth, window.innerHeight); //definindo ponto de inicio do rect, largura e altura
-            }
+                canvasCtx.fillRect(0, 0, this.w, this.h); //definindo ponto de inicio do rect, largura e altura (this, quer dizer 'este obj', ou seja 'field')
+            },
+        }
+
+        //OBJETO LINHA
+        const line = {
+            w: 15,
+            h: field.h,
+            draw: function() {
+                //desenha linha dentral
+                canvasCtx.fillStyle = "#ffffff"; //definindo a cor da linha
+                canvasCtx.fillRect(field.w / 2 - this.w / 2, 0, this.w, this.h); //linha
+            },
         }
 
         function setup() {
@@ -46,14 +57,8 @@
 
         function draw() {
             field.draw();
+            line.draw();
             
-            //desenha linha dentral
-            canvasCtx.fillStyle = "#ffffff"; //definindo a cor da linha
-            const x = window.innerWidth / 2 - lineWidth / 2; //ponto inicial horizontal
-            const y = 0; //ponto inicial vertical
-            const w = lineWidth; //largura da linha
-            const h = window.innerHeight //altura da linha
-            canvasCtx.fillRect(x, y, w, h); //linha
 
             //desenha a raquete esquerda
             canvasCtx.fillRect(10, 400, lineWidth, 200);
