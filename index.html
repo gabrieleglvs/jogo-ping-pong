@@ -70,6 +70,21 @@
             },
         }
 
+        //OBJETO PLACAR
+        const score = {
+            human: 1,
+            computer: 2,
+            draw: function () {
+                //desenha o placar
+                canvasCtx.font = "bold 72px Arial"
+                canvasCtx.textAlign = "center"
+                canvasCtx.textBaseline = "top"
+                canvasCtx.fillStyle = "#01341d"
+                canvasCtx.fillText(this.human, field.w/4, 50)
+                canvasCtx.fillText(this.computer, field.w/4 + field.w/2, 50)
+            },
+        }
+
         //OBJETO BOLINHA
         const ball = {
             x: 300,
@@ -81,9 +96,9 @@
                 canvasCtx.beginPath()
                 canvasCtx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false)
                 canvasCtx.fill()
-            }
+            },
         }
-
+       
         function setup() {
              /* 
                 1 - definindo largura do canvasEl e canvasCtx como o padrão da Window
@@ -98,15 +113,9 @@
             line.draw();
             leftPaddle.draw();
             rightPaddle.draw();
-            ball.draw();
+            score.draw();
+            ball.draw(); 
             
-            //desenha o placar
-            canvasCtx.font = "bold 72px Arial"
-            canvasCtx.textAlign = "center"
-            canvasCtx.textBaseline = "top"
-            canvasCtx.fillStyle = "#01341d"
-            canvasCtx.fillText('3', window.innerWidth/4, 50)
-            canvasCtx.fillText('1', window.innerWidth/4 + window.innerWidth/2, 50)
         }
 
         setup();
