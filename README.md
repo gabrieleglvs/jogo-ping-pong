@@ -15,7 +15,7 @@
 
 <p>Você pode acessar o jogo <a href="https://gabrieleglvs.github.io/jogo-ping-pong/">clicando aqui.</a></p>
 
-<h2>⚙️ Técnicas e tecnologias utilizadas</h2>
+<h2>⚙️ Tecnologias e técnicas utilizadas</h2>
 
 - ``HTML5``
 - ``JavaScript``
