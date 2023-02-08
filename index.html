@@ -70,6 +70,20 @@
             },
         }
 
+        //OBJETO BOLINHA
+        const ball = {
+            x: 300,
+            y: 200,
+            r: 20,
+            draw: function () {
+                //desenha a bolinha
+                canvasCtx.fillStyle = "#ffffff";
+                canvasCtx.beginPath()
+                canvasCtx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false)
+                canvasCtx.fill()
+            }
+        }
+
         function setup() {
              /* 
                 1 - definindo largura do canvasEl e canvasCtx como o padrão da Window
@@ -84,12 +98,7 @@
             line.draw();
             leftPaddle.draw();
             rightPaddle.draw();
-            
-
-            //desenha a bolinha
-            canvasCtx.beginPath()
-            canvasCtx.arc(200, 300, 20, 0, 2 * Math.PI, false)
-            canvasCtx.fill()
+            ball.draw();
             
             //desenha o placar
             canvasCtx.font = "bold 72px Arial"
