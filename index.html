@@ -22,6 +22,12 @@
         */
         const canvasEl = document.querySelector("canvas"), canvasCtx = canvasEl.getContext("2d"), gapX = 10;
 
+        //OBJETO MOUSE
+        const mouse = {
+            x: 0,
+            y: 0
+        }
+
         //OBJETO CAMPO
         const field = {
             w: window.innerWidth,
@@ -47,13 +53,18 @@
         //OBJETO RAQUETE ESQ
         const leftPaddle = {
             x: gapX,
-            y: 100,
+            y: 0,
             w: line.w,
             h: 200,
+            _move: function() {
+                this.y = mouse.y - this.h / 2;
+            },
             draw: function() {
                 //desenha a raquete esquerda
                 canvasCtx.fillStyle = "#ffffff";
                 canvasCtx.fillRect(this.x, this.y, this.w, this.h);
+
+                this._move()
             },
         }
 
@@ -145,6 +156,12 @@
 
         setup()
         main()
+
+        canvasEl.addEventListener('mousemove', function(e) {
+            mouse.x = e.pageX
+            mouse.y = e.pageY
+
+        })
     </script>
 </body>
 </html>
