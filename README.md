@@ -19,6 +19,6 @@
 
 - ``HTML5``
 - ``JavaScript``
-- ``Estruturas de repetição``
+- ``Estruturas de decisão``
 - ``Funções``
 - ``Orientação a objetos``
